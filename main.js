@@ -1,5 +1,5 @@
 'use strict';
-
+//this is test comment
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -30,7 +30,11 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
+const movePiece = (startStack, endStack) => {
+  console.log("this is move piece"+ startStack)
+  console.log("this is move piece"+ endStack)
+  //function is gonna move element from one array to another
+console.log("this is a test:")
   // Your code here
 
 }
@@ -38,18 +42,22 @@ const movePiece = () => {
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = () => {
   // Your code here
+  //make sure end element is not smaller than the piece being moved
 
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
+  //checks if C stack has all the rings
 
 }
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
+  
   // Your code here
+movePiece(startStack, endStack)
 
 }
 
