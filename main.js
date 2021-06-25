@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-//test comment
+
 // An object that represents the three stacks of Towers of Hanoi; 
   // * each key is an array of Numbers: 
     // * A is the far-left, 
@@ -31,23 +31,51 @@ const printStacks = () => {
 
 // Next, what do you think this function should do?
 const movePiece = (startStack, endStack) => {
-  console.log("this is move piece"+ startStack)
-  console.log("this is move piece"+ endStack)
+ // console.log("this is move piece"+ startStack)
+  //console.log("this is move piece"+ endStack)
   //function is gonna move element from one array to another
-console.log("this is a test:")
+//console.log("this is a test:")
+
+let element=stacks[startStack].pop()
+stacks[endStack].push(element)
   // Your code here
+  console.log ("Immoving")
 
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
-const isLegal = () => {
+const isLegal = (startStack, endStack) => {
+  let element1=stacks[startStack]
+  let element2=stacks[endStack]
+  
+  if (element2.length===0){
+  return true
+    }  else if (element1[element1.length-1] < element2[element2.length-1]){
+      console.log ("this move is legal")
+      return true 
+
+    } else{
+      console.log ("this move is illegal")
+      return false 
+    }
+}
+  
+  
+
+
   // Your code here
   //make sure end element is not smaller than the piece being moved
 
-}
+
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
+  if(stacks.b.length===4) {
+    return true 
+  } 
+  else{
+    return false 
+  }
   // Your code here
   //checks if C stack has all the rings
 
@@ -55,9 +83,14 @@ const checkForWin = () => {
 
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
+  if(isLegal(startStack, endStack)){
+    movePiece(startStack, endStack)
+    checkForWin()
+  }
+    
   
   // Your code here
-movePiece(startStack, endStack)
+//movePiece(startStack, endStack)
 
 }
 
